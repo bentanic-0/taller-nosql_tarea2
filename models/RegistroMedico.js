@@ -10,8 +10,6 @@ const registroMedicoSchema = new mongoose.Schema({
   Diagnostico: { type: String, required: true },
   Medico: { type: String, required: true },
   Institucion: { type: String, required: true },
-  Descripcion: { type: String, optional: true },
-  Medicacion: { type: String, optional: true },
   PacienteCI: { type: String, required: true },
 });
 
