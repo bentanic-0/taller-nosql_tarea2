@@ -20,7 +20,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
   it('Debería agregar un paciente', async () => {
     const res = await request(app)
       .post('/pacientes')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: uuidv4(), // Generar un CI único
         Nombre: 'Juan',
@@ -35,7 +35,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
   it('Debería agregar una institución', async () => {
     const res = await request(app)
       .post('/instituciones')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         id: uuidv4(), // Generar un ID único
         Nombre: 'Hospital Central',
@@ -51,7 +51,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     const institutionId = uuidv4(); // Generar un ID único para la institución
     await request(app)
       .post('/instituciones')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         id: institutionId,
         Nombre: 'Hospital Central',
@@ -61,7 +61,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
 
     const res = await request(app)
       .post('/medicos')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: uuidv4(), // Generar un CI único
         Nombre: 'María',
@@ -82,7 +82,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     const patientCI = uuidv4(); // Generar un CI único para el paciente
     await request(app)
       .post('/pacientes')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: patientCI,
         Nombre: 'Pedro',
@@ -95,7 +95,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     const doctorCI = '87654321'; // Reemplaza con un CI de médico existente
     await request(app)
       .post('/medicos')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: doctorCI,
         Nombre: 'Dr. Juan',
@@ -109,7 +109,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     const institutionID = '1'; // Reemplaza con un ID de institución existente
     await request(app)
       .post('/instituciones')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         id: institutionID,
         Nombre: 'Hospital Central',
@@ -120,7 +120,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Agregar el registro médico
     const res = await request(app)
       .post('/registros')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         Fecha: '2023-10-01',
         Tipo: 'Consulta',
@@ -156,7 +156,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Crear el paciente inicialmente
     await request(app)
       .post('/pacientes')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: patientCI,
         Nombre: 'Juan',
@@ -168,7 +168,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Intentar crear el mismo paciente nuevamente
     const res = await request(app)
       .post('/pacientes')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: patientCI,
         Nombre: 'Juan',
@@ -187,7 +187,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Crear el médico inicialmente
     await request(app)
       .post('/medicos')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: doctorCI,
         Nombre: 'María',
@@ -200,7 +200,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Intentar crear el mismo médico nuevamente
     const res = await request(app)
       .post('/medicos')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         CI: doctorCI,
         Nombre: 'María',
@@ -220,7 +220,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Crear la institución inicialmente
     await request(app)
       .post('/instituciones')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         id: institutionID,
         Nombre: 'Hospital Central',
@@ -231,7 +231,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
     // Intentar crear la misma institución nuevamente
     const res = await request(app)
       .post('/instituciones')
-      .set('Authorization', Bearer ${token})
+      .set('Authorization', `Bearer ${token}`)
       .send({
         id: institutionID,
         Nombre: 'Hospital Central',
