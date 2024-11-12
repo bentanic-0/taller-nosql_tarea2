@@ -74,6 +74,6 @@ En el archivo `Fundamentacion_Base_de_Datos.pdf` (en la raíz del proyecto) se e
 
 ## Pruebas
 
-Los casos de prueba están disponibles en Postman y se han implementado pruebas unitarias automatizadas utilizando Supertest. Estas pruebas se encuentran en el archivo `server.test.js` ubicado en la raíz del proyecto.
+Los casos de prueba están disponibles en Postman (se ha enviado invite como viewer de workspace a la siguiente dirección electrónica: apastorini@gmail.com). Adicionalmente, se han implementado pruebas unitarias automatizadas utilizando Supertest. Estas pruebas se encuentran en archivo `server.test.js` ubicado en la raíz del proyecto.
 
 ---
