@@ -1,73 +1,79 @@
-# taller-nosql_tarea2
-historial-medico
 
-# Proyecto de Gestión de Historial Médico
-
+# Proyecto: Sistema de Historial Médico
 
 ## Descripción
+Este proyecto proporciona un backend para la gestión de historiales médicos de pacientes, empleando una base de datos NoSQL y exponiendo una API RESTful para realizar operaciones CRUD.
 
-Este proyecto consiste en una solución de software para gestionar el historial médico de pacientes utilizando una base de datos NoSQL y ofreciendo servicios a través de una API REST.
+## Tecnologías Utilizadas
+- **Lenguaje:** Node.js
+- **Framework:** Express.js
+- **Base de Datos:** MongoDB
+- **ORM:** Mongoose
+- **Control de Versiones:** Git
 
+## Estructura del Proyecto
+- **models/**: Contiene los esquemas de datos para las colecciones (Paciente, RegistroMédico, Médico, Institución).
+- **db.js**: Archivo para la configuración de la conexión a MongoDB.
+- **server.js**: Archivo principal de la aplicación que también contiene las rutas de la API para las distintas operaciones.
+- **server.test.js**: Archivo de pruebas unitarias a las rutas de la API utilizando supertest.
 
-## Formato de Intercambio de Datos
+## Instalación
 
-Todos los intercambios de información se realizan en formato JSON.
+1. **Clonar el repositorio:**
+    ```bash
+    git clone https://tu-repositorio.git
+    ```
+   
+2. **Instalar dependencias:**
+    ```bash
+    cd sistema-historial-medico
+    npm install
+    ```
 
-##Plataformas
+3. **Configurar la base de datos:**
+    - Se recomienda descargar la herramienta MongoDB Compass para visualizar la base de datos localmente.
+    - Crear un archivo `.env` en la raíz del proyecto, solicita al equipo de desarrollo la cadena de conexión de MongoDB y añadela al archivo:
+      ```env
+      MONGO_URI=mongodb://tu_usuario:tu_contraseña@tu_host:tu_puerto/tu_base_de_datos
+      ```
 
-Lenguaje: JavaScript (Node.js)
-Base de Datos: MongoDB (NoSQL)
+## Ejecución
 
-Justificación de la Base de Datos Elegida
+Ejecuta la aplicación con el siguiente comando:
 
-Se eligió MongoDB como base de datos NoSQL debido a su flexibilidad para manejar datos no estructurados y su capacidad para escalar horizontalmente, lo que es ideal para gestionar grandes volúmenes de datos de registros médicos.
+```bash
+npm start
+```
 
-Diseño de Esquema
+## API REST
 
-El sistema utiliza los siguientes esquemas de Mongoose:
+- **Base URL:** `http://localhost:3000`
+- **Formato de Datos:** JSON
 
-    Institución
-        ID único
-        Nombre
-        Dirección (opcional)
-        Teléfono (opcional)
+### Endpoints
 
-    Médico
-        Cédula de Identidad (CI)
-        Nombre
-        Apellido
-        Especialidad
-        Teléfono (opcional)
-        Institución (referencia)
+#### Pacientes
+- **POST** `/pacientes`: Agregar un nuevo paciente
 
-    Paciente
-        Cédula de Identidad (CI)
-        Nombre
-        Apellido
-        Fecha de Nacimiento
-        Sexo
+#### Médicos
+- **POST** `/medicos`: Agregar un nuevo médico
 
-    Registro Médico
-        Fecha
-        Tipo (Consulta, Examen, Internación)
-        Diagnóstico
-        Médico (referencia)
-        Institución (referencia)
-        Cédula de Identidad del Paciente
+#### Instituciones
+- **POST** `/instituciones`: Agregar una nueva institución
 
-## URL de los Servicios
+#### Registros Médicos
+- **POST** `/registros`: Agregar un nuevo registro médico
+- **GET** `/historial/:ci`: Obtener el historial médico de un paciente por cédula
+- **GET** `/registros`: Obtener registros médicos según criterios de búsqueda (tipo, diagnóstico, médico, institución)
 
-- **Agregar Paciente**: `POST /api/pacientes`
+## Justificación de MongoDB
+Se eligió MongoDB debido a su flexibilidad para manejar datos estructurados y semiestructurados, su escalabilidad, y la facilidad de integración con Mongoose. MongoDB es especialmente útil para datos no relacionales como los historiales médicos, donde las relaciones entre datos pueden no ser rígidas.
 
-- **Agregar Registro Médico**: `POST /api/registros`
+## Modelo de la Base de Datos
+En el archivo `Fundamentacion_Base_de_Datos.pdf` (en la raíz del proyecto) se explican las relaciones entre las colecciones y la justificación detrás de la estructura de la base de datos.
 
-- **Consultar Historial Médico**: `GET /api/pacientes/:ci/historial`
+## Pruebas
 
-- **Obtener Registros por Criterio**: `GET /api/registros`
+Los casos de prueba están disponibles en Postman (se ha enviado invite como viewer de workspace a la siguiente dirección electrónica: apastorini@gmail.com). Adicionalmente, se han implementado pruebas unitarias automatizadas utilizando Supertest. Estas pruebas se encuentran en archivo `server.test.js` ubicado en la raíz del proyecto.
 
-Manual de Configuración
-
-    Asegúrate de tener MongoDB corriendo.
-    Configura tu archivo .env con las credenciales necesarias para conectar a MongoDB.
-    Inicia el servidor: npm start
-    
+---
