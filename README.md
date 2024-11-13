@@ -84,7 +84,7 @@ Se dispone en la raíz, de un directorio "/opcionales", dentro de él se encuent
 
 ---
 
-## Puntos a mejorar en el proyecto
+## Puntos a mejorar en el proyecto a futuro
 
 * **Validación de datos:**
     * Reforzar las validaciones existentes con Mongoose.
