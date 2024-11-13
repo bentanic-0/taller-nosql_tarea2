@@ -9,7 +9,7 @@ describe('Pruebas de la API de Gestión Médica', () => {
   beforeAll(async () => {
     await connectDB();
 
-    // Si tu API requiere autenticación, obtén un token aquí
+    // Si tu API requiere autenticación, obtén un token aquí - FIXME: de momento no requerimos autenticación
     const authResponse = await request(app).post('/auth/login').send({
       username: 'admin', // Cambia esto según tu configuración
       password: 'password', // Cambia esto según tu configuración
