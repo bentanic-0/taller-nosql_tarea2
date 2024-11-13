@@ -78,6 +78,12 @@ Los casos de prueba están disponibles en Postman (se ha enviado invite como vie
 
 ---
 
+## Requisitos opcionales
+
+Se dispone en la raíz, de un directorio "/opcionales", dentro de él se encuentran los archivos relativos a los requisitos opcionales elegidos.
+
+---
+
 ## Puntos a mejorar en el proyecto
 
 * **Validación de datos:**
