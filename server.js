@@ -146,6 +146,11 @@ app.get('/registros', async (req, res) => {
   res.send(registros);
 });
 
+// Ruta para la página de inicio
+app.get('/', (req, res) => {
+  res.send('<h1>Bienvenido a la API de Gestión Médica</h1>');
+});
+
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
