@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "d16b8a29-fd05-4c25-b175-b7b63d994cf0",
+		"name": "Gestión Médica API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39692231",
+		"_collection_link": "https://taller-nosql-team.postman.co/workspace/Taller-NoSQL~430c4c98-f61c-48df-8522-75dc1c3e836f/collection/39692231-d16b8a29-fd05-4c25-b175-b7b63d994cf0?action=share&source=collection_link&creator=39692231"
+	},
+	"item": [
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Agregar Paciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CI\": \"123456782\", // SIEMPRE tirar query en db para introducir un valor de CI inexistente en la DB, de lo contrario, estamos hablando de un request de error que es independiente\r\n  \"Nombre\": \"Juan\",\r\n  \"Apellido\": \"Pérez\",\r\n  \"FechaNacimiento\": \"1990-01-01\",\r\n  \"Sexo\": \"Masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Paciente (Error CI ya existente)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CI\": \"12345678\",\r\n  \"Nombre\": \"Juan\",\r\n  \"Apellido\": \"Pérez\",\r\n  \"FechaNacimiento\": \"1990-01-01\",\r\n  \"Sexo\": \"Masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Médicos",
+			"item": [
+				{
+					"name": "Agregar Médico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CI\": \"87654321\", // SIEMPRE tirar query en db para introducir un valor de CI inexistente en la DB, de lo contrario, estamos hablando de un request de error que es independiente\r\n  \"Nombre\": \"Dr. Juan\",\r\n  \"Apellido\": \"Pérez\",\r\n  \"Especialidad\": \"General\",\r\n  \"Telefono\": \"123456789\",\r\n  \"Institucion\": {\r\n    \"id\": \"1\",\r\n    \"Nombre\": \"Hospital Central\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medicos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Médico (Error CI ya existente)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CI\": \"87654321\",\r\n  \"Nombre\": \"Dr. Juan\",\r\n  \"Apellido\": \"Pérez\",\r\n  \"Especialidad\": \"General\",\r\n  \"Telefono\": \"123456789\",\r\n  \"Institucion\": {\r\n    \"id\": \"1\",\r\n    \"Nombre\": \"Hospital Central\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medicos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instituciones",
+			"item": [
+				{
+					"name": "Agregar Institución",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"1\", // SIEMPRE tirar query en db para introducir un valor de id inexistente en la DB, de lo contrario, estamos hablando de un request de error que es independiente\r\n  \"Nombre\": \"Hospital Central\",\r\n  \"Direccion\": \"Calle Falsa 123\",\r\n  \"Telefono\": \"987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/instituciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"instituciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Institución (Error ID ya existente)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"1\",\r\n  \"Nombre\": \"Hospital Central\",\r\n  \"Direccion\": \"Calle Falsa 123\",\r\n  \"Telefono\": \"987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/instituciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"instituciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registros Médicos",
+			"item": [
+				{
+					"name": "Agregar Registro Médico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"PacienteCI\": \"12345678\",\r\n  \"Fecha\": \"2023-10-01\",\r\n  \"Tipo\": \"Consulta\",\r\n  \"Diagnostico\": \"Resfriado\",\r\n  \"MedicoCI\": \"87654321\",\r\n  \"InstitucionID\": \"1\",\r\n  \"Descripcion\": \"Paciente presenta síntomas de resfriado.\",\r\n  \"Medicacion\": \"Paracetamol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/registros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Historial Médico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/historial/12345678",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"historial",
+								"12345678"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Registros por Criterio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/registros?tipo=Consulta&diagnostico=Resfriado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registros"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "Consulta"
+								},
+								{
+									"key": "diagnostico",
+									"value": "Resfriado"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
