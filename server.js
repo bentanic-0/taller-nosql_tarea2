@@ -58,9 +58,16 @@ app.post('/medicos', async (req, res) => {
   const { CI, Nombre, Apellido, Especialidad, Telefono, Institucion } = req.body;
 
   // Validación de campos requeridos
-  if (!CI || !Nombre || !Apellido || !Especialidad || !Telefono || !Institucion) {
+  if (!CI || !Nombre || !Apellido || !Especialidad || !Telefono) {
     return res.status(400).json({
-      error: 'Todos los campos son requeridos'
+      error: 'Todos los campos principales son requeridos'
+    });
+  }
+
+  // Validación de campos de Institucion
+  if (!Institucion || !Institucion.id || !Institucion.Nombre) {
+    return res.status(400).json({
+      error: 'Los campos id y Nombre de Institucion son requeridos'
     });
   }
 
@@ -80,7 +87,10 @@ app.post('/medicos', async (req, res) => {
       Apellido,
       Especialidad,
       Telefono,
-      Institucion
+      Institucion: {
+        id: Institucion.id,
+        Nombre: Institucion.Nombre
+      }
     });
 
     // Guardar el nuevo médico en la base de datos
@@ -95,6 +105,7 @@ app.post('/medicos', async (req, res) => {
     });
   }
 });
+
 
 
 // Agregar Institución
