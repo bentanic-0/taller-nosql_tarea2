@@ -77,3 +77,25 @@ En el archivo `Fundamentacion_Base_de_Datos.pdf` (en la raíz del proyecto) se e
 Los casos de prueba están disponibles en Postman (se ha enviado invite como viewer de workspace a la siguiente dirección electrónica: apastorini@gmail.com). Adicionalmente, se han implementado pruebas unitarias automatizadas utilizando Supertest. Estas pruebas se encuentran en archivo `server.test.js` ubicado en la raíz del proyecto.
 
 ---
+
+## Puntos a mejorar en el proyecto
+
+* **Validación de datos:**
+    * Reforzar las validaciones existentes con Mongoose.
+    * Agregar validaciones personalizadas para asegurar la integridad de los datos (formatos de fecha, longitudes de cadenas, etc.).
+
+* **Paginación:**
+    * Implementar paginación en las consultas de historial médico y registros por criterio.
+    * Utilizar parámetros como `page` y `limit` para controlar la cantidad de resultados devueltos.
+
+* **Manejo de errores:**
+    * Implementar un middleware de manejo de errores para centralizar la gestión de excepciones.
+    * Proporcionar respuestas informativas al usuario en caso de errores.
+
+* **Documentación:**
+    * Enriquecer la documentación de la API en el README.
+    * Incluir ejemplos de solicitudes y respuestas para facilitar su comprensión.
+
+* **Pruebas:**
+    * Implementar pruebas unitarias e integración para asegurar la calidad del código.
+    * Detectar errores antes de que afecten a los usuarios.
