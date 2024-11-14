@@ -96,9 +96,9 @@ Configurar las variables de entorno: Asegúrate de que el archivo .env incluya l
 
 Construir y ejecutar los contenedores: En la terminal, desde la raíz del proyecto, ejecuta el siguiente comando para construir y levantar los contenedores:
 
-´sh
-docker-compose up --build
-´
+
+<docker-compose up --build>
+
 
 Probar la aplicación: Una vez que los contenedores estén en funcionamiento, accede a la API en http://localhost:3000. Puedes probar los endpoints usando Postman o cualquier otra herramienta de tu elección, como por ejemplo directamente desde el browser.
 
