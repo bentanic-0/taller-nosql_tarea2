@@ -80,7 +80,35 @@ Los casos de prueba están disponibles en Postman (se ha enviado invite como vie
 
 ## Requisitos opcionales
 
-Se dispone en la raíz, de un directorio "/opcionales", dentro de él se encuentran los archivos relativos a los requisitos opcionales elegidos.
+### 1. JMeter
+Se dispone en la raíz, de un directorio "/reqOpcional", dentro de él se encuentran los archivos relativos aL requisitos opcional de JMeter.
+
+### 2. Solución dockerizada
+
+Se han creado los archivos: ".dockerignore", "docker-compose.yml" y "Dockerfile" necesarios para el propósito. Los mismos se encuentran en la raíz.
+
+**Pasos para ejecutar la solución en Docker**
+Instalar Docker Desktop: Asegúrate de tener Docker Desktop instalado y Docker Engine en ejecución.
+
+Clonar el repositorio: Clona este repositorio en tu máquina local.
+
+Configurar las variables de entorno: Asegúrate de que el archivo .env incluya la variable MONGO_URI, o revisa el archivo docker-compose.yml para confirmarlo.
+
+Construir y ejecutar los contenedores: En la terminal, desde la raíz del proyecto, ejecuta el siguiente comando para construir y levantar los contenedores:
+
+´´´sh
+docker-compose up --build
+´´´
+
+Probar la aplicación: Una vez que los contenedores estén en funcionamiento, accede a la API en http://localhost:3000. Puedes probar los endpoints usando Postman o cualquier otra herramienta de tu elección, como por ejemplo directamente desde el browser.
+
+Detener los contenedores: Cuando hayas terminado, puedes detener los contenedores con:
+
+´´´sh
+docker-compose down
+´´´
+
+Para finalizar: El archivo docker-compose.yml ya incluye un volumen para MongoDB, lo que asegura que los datos persistan entre reinicios de contenedores. Esto significa que no perderemos datos si detenemos y volvemos a levantar la aplicación.
 
 ---
 
